@@ -90,10 +90,46 @@
        
         <input type="button" value="Enviar" onclick="enviarFormulario()">
         <input type="reset" value="Reiniciar">
-
-        
-
     </form>  
+    <script>
+        function enviarFormulario() {
+            // Obtener los valores de los campos
+            var nombre = document.getElementById('nombre').value;
+            var email = document.getElementById('email').value;
+            var telefono = document.getElementById('telefono').value;
+
+            // Realizar validaciones
+            if (nombre.trim() === '') {
+                alert('Por favor, ingresa tu nombre completo.');
+                return;
+            }
+
+            if (email.trim() === '' || !isValidEmail(email)) {
+                alert('Por favor, ingresa un correo electrónico válido.');
+                return;
+            }
+
+            if (telefono.trim() === '' || !isValidPhone(telefono)) {
+                alert('Por favor, ingresa un número de teléfono válido.');
+                return;
+            }
+
+            // Si todas las validaciones pasan, puedes enviar el formulario
+            alert('Formulario válido. Puedes enviarlo.');
+        }
+
+        // Función para validar el formato del correo electrónico
+        function isValidEmail(email) {
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // Función para validar el formato del número de teléfono
+        function isValidPhone(phone) {
+            var phoneRegex = /^\d{10}$/;
+            return phoneRegex.test(phone);
+        }
+    </script>
 </body>
 </html>
 
