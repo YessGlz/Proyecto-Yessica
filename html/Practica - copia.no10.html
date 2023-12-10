@@ -13,9 +13,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@1,600&family=Dancing+Script&family=Young+Serif&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <center><h1><big>Formulario</big></h1></center>
+   
     <form>
         <fieldset>
            <legend><h3><i><big> &#10084;Inputs &#10084;</big></i></h3></legend>
@@ -25,12 +27,12 @@
     
             <label for="sexo"><b><h4>Sexo: </h4></b></label>
             <div class="inline-block-container">
-                <label for="masculino">Masculino</label>
+                <label for="masculino"><h4>Masculino</h4></label>
                 <input type="radio" id="masculino" name="genero" value="Masculino" checked>
             </div>
 
             <div class="inline-block-container">
-                <label for="femenino">Femenino</label>
+                <label for="femenino"><h4>Femenino</h4></label>
                 <input type="radio" id="femenino" name="genero" value="Femenino">
             </div>
             
@@ -50,8 +52,8 @@
             <label for="email"><b><h4>&#128231 Email: </h4></b></label>
             <input id="email" type="email"><br><br>
 
-            <label for="contraseña"><b><h4>&#128274 Contraseña: </h4></b></label>
-            <input type="password" name="contrasena"><br><br>
+            <label for="contrasena"><b><h4>&#128274 Contraseña: </h4></b></label>
+            <input type="password" id="contrasena" name="contrasena"><br><br>
 
 
             <label for="telefono"><b><h4>&#128241 Teléfono:</h4></b></label>
@@ -88,48 +90,12 @@
             <textarea rows="10" cols="50" placeholder="Mensaje" id="mensaje"></textarea>
         </fieldset>  
        
-        <input type="button" value="Enviar" onclick="enviarFormulario()">
+        <input type="button" value="Enviar" onclick="validarFormulario()">
         <input type="reset" value="Reiniciar">
+        <script src="/Script/script.js"></script>
     </form>  
-    <script>
-        function enviarFormulario() {
-            // Obtener los valores de los campos
-            var nombre = document.getElementById('nombre').value;
-            var email = document.getElementById('email').value;
-            var telefono = document.getElementById('telefono').value;
-
-            // Realizar validaciones
-            if (nombre.trim() === '') {
-                alert('Por favor, ingresa tu nombre completo.');
-                return;
-            }
-
-            if (email.trim() === '' || !isValidEmail(email)) {
-                alert('Por favor, ingresa un correo electrónico válido.');
-                return;
-            }
-
-            if (telefono.trim() === '' || !isValidPhone(telefono)) {
-                alert('Por favor, ingresa un número de teléfono válido.');
-                return;
-            }
-
-            // Si todas las validaciones pasan, puedes enviar el formulario
-            alert('Formulario válido. Puedes enviarlo.');
-        }
-
-        // Función para validar el formato del correo electrónico
-        function isValidEmail(email) {
-            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return emailRegex.test(email);
-        }
-
-        // Función para validar el formato del número de teléfono
-        function isValidPhone(phone) {
-            var phoneRegex = /^\d{10}$/;
-            return phoneRegex.test(phone);
-        }
-    </script>
+    
 </body>
 </html>
+
 
